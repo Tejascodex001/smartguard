@@ -32,6 +32,7 @@ Measured on a standard laptop CPU (no GPU):
 - **Keyword baseline**: ~0.5ms P95
 
 The ML classifier adds ~30–45ms latency over keywords. For a real-time API, this is acceptable for a security layer that fires on every request — the safety gain justifies the cost.
+Measured empirically via repeated runs on CPU (N≈100 samples), with latency displayed in the UI.
 
 ---
 
