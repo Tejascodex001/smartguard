@@ -156,5 +156,5 @@ smartguard/
 |--------|-------------|--------|
 | Block rate | > 80% on red-team probes | Check dashboard |
 | False positive rate | < 20% on benign set | Check dashboard |
-| Attack categories | 3 types | ✅ jailbreak, injection, toxic |
-| Accuracy vs. strictness plot | ≥ 1 curve | ✅ recall + FP + ROC |
+| Attack categories | 3 types | jailbreak, injection, toxic |
+| Accuracy vs. strictness plot | ≥ 1 curve | recall + FP + ROC |
