@@ -39,7 +39,7 @@ The ML classifier adds ~30–45ms latency over keywords. For a real-time API, th
 
 ```bash
 # 1. Clone and install
-git clone https://github.com/YOUR_USERNAME/smartguard
+git clone https://github.com/Tejascodex001/smartguard
 cd smartguard
 pip install -r requirements.txt
 
