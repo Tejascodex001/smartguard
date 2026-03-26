@@ -1,4 +1,4 @@
-# 🛡️ SmartGuard — LLM Input/Output Firewall
+# SmartGuard — LLM Input/Output Firewall
 
 > **Track A** — Pre-trained lightweight CPU classifier  
 > Classifies any LLM prompt as safe or unsafe. Returns verdict, category, and confidence score. Red-team tested across jailbreaks, prompt injections, and toxic content.
@@ -112,7 +112,7 @@ Yes — see 5 side-by-side examples in the Failure Analysis page. Key wins:
 - ML has lower false positive rate on legitimate security discussions
 
 ### 2. Accuracy vs. strictness trade-off
-The threshold curve (📈 page) shows the full sweep. At threshold=0.5 (default), SmartGuard achieves >80% block rate with <20% FP rate — meeting both brief targets. The ROC curve shows ML consistently dominates the keyword baseline at all operating points.
+The threshold curve (page) shows the full sweep. At threshold=0.5 (default), SmartGuard achieves >80% block rate with <20% FP rate — meeting both brief targets. The ROC curve shows ML consistently dominates the keyword baseline at all operating points.
 
 ### 3. P95 inference latency on CPU-only hardware
 ~35–50ms for the full two-stage pipeline. Well under the 100ms threshold for real-time APIs. Keyword baseline: ~0.5ms — so ML adds ~35–50ms latency in exchange for substantially better accuracy.
