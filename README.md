@@ -158,3 +158,20 @@ smartguard/
 | False positive rate | < 20% on benign set | Check dashboard |
 | Attack categories | 3 types | jailbreak, injection, toxic |
 | Accuracy vs. strictness plot | ≥ 1 curve | recall + FP + ROC |
+
+## Some important things to be noted:
+
+1. Jailbreak category is inferred from prompt patterns (role-play framing, DAN-style instructions) combined with injection score.
+
+2. Dataset is small (45 prompts) and may not reflect real-world distribution. Results should be interpreted as indicative, not definitive.
+
+3. Threshold = 0.50 selected as it achieves:
+    - >80% recall
+    - 0% false positive rate
+    based on red-team sweep
+
+4. Output is indirectly controlled via input classification
+
+5. Toxic detection remains an open limitation. The current model (DistilBERT) fails to generalise beyond surface-level toxicity.
+
+6. Future work: replace with domain-specific classifier.
