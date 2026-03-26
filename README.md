@@ -159,19 +159,16 @@ smartguard/
 | Attack categories | 3 types | jailbreak, injection, toxic |
 | Accuracy vs. strictness plot | ≥ 1 curve | recall + FP + ROC |
 
-## Some important things to be noted:
+## Limitations & Design Notes
 
-1. Jailbreak category is inferred from prompt patterns (role-play framing, DAN-style instructions) combined with injection score.
+- Jailbreak detection is not handled by a dedicated classifier. Instead, it is inferred from prompt patterns (e.g., role-play framing, DAN-style instructions) in combination with the prompt injection score produced by the DeBERTa model.
 
-2. Dataset is small (45 prompts) and may not reflect real-world distribution. Results should be interpreted as indicative, not definitive.
+- The red-team dataset consists of 45 prompts and may not reflect real-world distribution. Therefore, reported metrics should be interpreted as indicative rather than definitive.
 
-3. Threshold = 0.50 selected as it achieves:
-    - >80% recall
-    - 0% false positive rate
-    based on red-team sweep
+- The decision threshold (0.50) was selected based on empirical evaluation, achieving approximately 80% recall with 0% false positive rate on the red-team suite.
 
-4. Output is indirectly controlled via input classification
+- Output control is implemented indirectly via input classification; unsafe prompts are blocked before reaching the LLM. No separate post-generation output classifier is currently applied.
 
-5. Toxic detection remains an open limitation. The current model (DistilBERT) fails to generalise beyond surface-level toxicity.
+- Toxic content detection remains a known limitation. The current DistilBERT-based classifier does not generalize well beyond surface-level toxicity patterns, resulting in low recall for this category.
 
-6. Future work: replace with domain-specific classifier.
+- Future work includes replacing the toxicity model with a domain-specific classifier and adding preprocessing layers to improve robustness against obfuscation and adversarial phrasing.
